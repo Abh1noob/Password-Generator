@@ -1,12 +1,11 @@
 import random as r
-import xlsxwriter as x
 import pyperclip
-
-workbook = x.Workbook(r'C:\Users\Admin\Desktop\userpass.xlsx')
-worksheet = workbook.add_worksheet()
+import csv
 
 length = int(input("Enter Length of Password: "))
+web = input("Enter Website: ")
 username = input("Enter Username: ")
+mail = input("Enter Email-Id: ")
 
 sml = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 cap = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -49,14 +48,12 @@ print(fpwd)
 
 pyperclip.copy(fpwd)
 
-worksheet.write(0,0,'Username')
-worksheet.write(0,1,'Password')
+with open(r'C:\Users\Admin\Desktop\userpass.csv', mode ='a')as file:
+    filewriter = csv.writer(file)
+    filewriter.writerow([web,username,fpwd,mail])
+    file.close()
 
-worksheet.write(1,0,username)
-worksheet.write(1,1,fpwd)
 
-workbook.close()
-
-input()
+input("Press any key to exit.")
 
 
