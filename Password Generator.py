@@ -1,5 +1,7 @@
 import random as r
 
+length = int(input("Enter Length of Password: "))
+
 sml = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 cap = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 num = ["1","2","3","4","5","6","7","8","9","0"]
@@ -14,25 +16,28 @@ pwd.append(r.choice(cap))
 pwd.append(r.choice(num))
 pwd.append(r.choice(spl))
 
-for i in range(4):
-    a = r.choice(choic)
+if length<4:
+    print("Minimum Length is 4")
+else:
+    for i in range(length-4):
+        a = r.choice(choic)
 
-    if a == 'sml':
-        pwd.append(r.choice(sml))
+        if a == 'sml':
+            pwd.append(r.choice(sml))
 
-    if a == 'cap':
-        pwd.append(r.choice(cap))
+        if a == 'cap':
+            pwd.append(r.choice(cap))
 
-    if a == 'num':
-        pwd.append(r.choice(num))
+        if a == 'num':
+            pwd.append(r.choice(num))
 
-    if a == 'spl':
-        pwd.append(r.choice(spl))
+        if a == 'spl':
+            pwd.append(r.choice(spl))
 
-r.shuffle(pwd)
+    r.shuffle(pwd)
 
-for i in pwd:
-    fpwd+=i
+    for i in pwd:
+        fpwd+=i
 
 print(fpwd)
 
