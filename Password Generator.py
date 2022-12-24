@@ -1,6 +1,12 @@
 import random as r
+import xlsxwriter as x
+import pyperclip
+
+workbook = x.Workbook(r'C:\Users\Admin\Desktop\userpass.xlsx')
+worksheet = workbook.add_worksheet()
 
 length = int(input("Enter Length of Password: "))
+username = input("Enter Username: ")
 
 sml = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 cap = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -40,6 +46,16 @@ else:
         fpwd+=i
 
 print(fpwd)
+
+pyperclip.copy(fpwd)
+
+worksheet.write(0,0,'Username')
+worksheet.write(0,1,'Password')
+
+worksheet.write(1,0,username)
+worksheet.write(1,1,fpwd)
+
+workbook.close()
 
 input()
 
